@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-app
+  namespace: otus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: otus-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: otus-app
+    spec:
+      containers:
+      - name: otus-app
+        image: docker.io/recvezitor/otus-app:latest
+        ports:
+          - name: web
+            containerPort: 5000

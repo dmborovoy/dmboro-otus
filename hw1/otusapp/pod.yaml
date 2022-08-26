@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: otus-app
+  labels:
+    app: otus-app
+spec:
+  containers:
+  - name: otus-app
+    image: docker.io/recvezitor/otus-app:latest
+    ports:
+      - containerPort: 5000

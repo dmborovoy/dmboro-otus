@@ -1,0 +1,16 @@
+logging:
+  level:
+    com.dmboro.otus: ${LOG_LEVEL:DEBUG}
+
+server:
+  port: ${TARGET_PORT:5000}
+
+spring:
+  application.name: otus-app
+
+management:
+  endpoints.web:
+    exposure.include: [ "health", "beans", "info", "env" ]
+  endpoints:
+    web:
+      base-path: "/"
