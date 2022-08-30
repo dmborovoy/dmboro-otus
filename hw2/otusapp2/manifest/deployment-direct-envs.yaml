@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-app2
+  namespace: otus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: otus-app2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: otus-app2
+    spec:
+      containers:
+      - name: otus-app2
+        image: docker.io/recvezitor/otus-app2:latest
+        env:
+          - name: DB_HOST
+            value: postgres.postgres-ns.svc.cluster.local
+          - name: DB_PORT
+            value: "5432"
+          - name: DB_DATABASE
+            value: postgres
+          - name: DB_SCHEMA
+            value: otus
+          - name: DB_USERNAME
+            value: postgres
+          - name: DB_PASSWORD
+            value: postgres
+        ports:
+          - name: web
+            containerPort: 5000

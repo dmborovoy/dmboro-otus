@@ -41,5 +41,6 @@ kubectl port-forward svc/otus-app 8001:8000
 
 minikube addons enable ingress
 
-
+minikube addons enable ingress
+🌟 The
 kubectl apply -

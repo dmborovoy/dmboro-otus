@@ -2,32 +2,7 @@
 GET {{protocol}}{{host}}{{root}}/container
 
 ###
-GET http://172.17.0.6:5000/api/v1/container
-###
-GET http://192.168.49.2:5000/api/v1/container
-###
-GET http://127.0.0.1:58589/api/v1/container
-
-###
-GET http://127.0.0.1:8001/api/v1/container
-
-###
-GET http://192.168.49.2:57276/api/v1/container
-HOST: thehost
-
-###
-GET http://192.168.49.2/api/v1/container
-
-###
-#GET http://192.168.49.2/api/v1/container
-GET http://10.107.4.38:32052/api/v1/container
-
-###
-GET http://thehost/api/v1/container
-HOST: thehost
-
-###
-GET http://127.0.0.1:59239/health
-
-###
 GET http://arch.homework/health
+
+###
+GET http://arch.homework/api/v1/container

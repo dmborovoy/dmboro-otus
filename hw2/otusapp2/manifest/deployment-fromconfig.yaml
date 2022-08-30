@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otus-app2
+  namespace: otus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: otus-app2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: otus-app2
+    spec:
+      containers:
+      - name: otus-app2
+        image: docker.io/recvezitor/otus-app2:latest
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: otus-app2-config
+                key: DB_HOST
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: otus-app2-config
+                key: DB_PORT
+          - name: DB_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: otus-app2-config
+                key: DB_DATABASE
+          - name: DB_SCHEMA
+            valueFrom:
+              configMapKeyRef:
+                name: otus-app2-config
+                key: DB_SCHEMA
+          - name: DB_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: otus-app2-config
+                key: DB_USERNAME
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: otus-app2-config-secret
+                key: DB_PASSWORD
+        ports:
+          - name: web
+            containerPort: 5000

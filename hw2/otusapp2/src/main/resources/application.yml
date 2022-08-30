@@ -1,0 +1,40 @@
+logging:
+  level:
+    com.dmboro.otus: ${LOG_LEVEL:DEBUG}
+
+server:
+  port: ${TARGET_PORT:5000}
+
+spring:
+  application.name: otus-app2
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_DATABASE:postgres}?currentSchema=${DB_SCHEMA:otus}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        enable_lazy_load_no_trans: true
+        default_schema: ${DB_SCHEMA:otus}
+    open-in-view: false
+  flyway:
+    enabled: true
+    schemas: ${DB_SCHEMA:otus}
+    user: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+management:
+  health:
+    livenessstate.enabled: false
+    readinessstate.enabled: false
+  endpoint.health.probes.enabled: false
+  endpoints.web:
+    exposure.include: [ "health", "beans", "info", "env" ]
+    base-path: "/"
+
