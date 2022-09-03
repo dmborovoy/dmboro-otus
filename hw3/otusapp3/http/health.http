@@ -1,0 +1,27 @@
+###
+GET {{protocol}}{{host}}/health
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Expecting response code 200");
+        client.assert(response.body.status === 'UP', "response body is: " + response.body);
+    });
+%}
+
+###
+GET {{protocol}}{{host}}/actuator/env
+
+###
+GET {{protocol}}{{host}}/actuator/health
+
+###
+GET http://arch.homework/actuator/health
+
+###
+GET {{protocol}}{{host}}/actuator/metrics
+
+###
+GET {{protocol}}{{host}}/actuator
+
+###
+GET {{protocol}}{{host}}/actuator/prometheus

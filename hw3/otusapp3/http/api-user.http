@@ -1,0 +1,28 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/users
+
+###create
+POST {{protocol}}{{host}}{{root}}/users
+Content-Type: application/json
+
+{
+  "firstName": "firstName2",
+  "lastName": "lastName2"
+}
+
+###get by id
+GET {{protocol}}{{host}}{{root}}/users/1
+
+
+
+###update
+PUT {{protocol}}{{host}}{{root}}/users/1
+Content-Type: application/json
+
+{
+  "firstName": "firstName12",
+  "lastName": "lastName1"
+}
+
+###delete
+DELETE {{protocol}}{{host}}{{root}}/users/1
