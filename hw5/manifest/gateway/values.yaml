@@ -1,0 +1,30 @@
+replicaCount: 2
+
+image:
+  repository: docker.io/recvezitor/otus-gateway:latest
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8000
+
+ingress:
+  host: arch.homework
+
+app:
+  profile-name: otus-app5
+  name: otus-gateway
+  namespace: otus
+  port: 5000
+  config:
+    name: gateway-config
+    data:
+      - key: KC_HOST
+        value: keycloak
+#      - key: KC_PORT
+#        value: 8080
+      - key: KC_REALM
+        value: otus
+      - key: PROFILE_URL
+        value: http://otus-app5:8000

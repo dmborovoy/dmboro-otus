@@ -1,0 +1,26 @@
+###anonymous
+POST {{protocol}}{{host}}{{root}}/register
+Content-Type: application/json
+
+{
+  "firstName": "firstName2",
+  "lastName": "lastName2",
+  "login": "login22@login.com",
+  "password": "123"
+}
+
+###get all - for debug purposes
+GET {{protocol}}{{host}}{{root}}/system
+Authorization: Bearer {{auth_token}}
+
+###get all - for debug purposes -- this endpoint doesn't validate current userId
+GET {{protocol}}{{host}}{{root}}/users
+Authorization: Bearer {{auth_token}}
+
+###get me
+GET {{protocol}}{{host}}{{root}}/users/me
+Authorization: Bearer {{auth_token}}
+
+###get by id
+GET {{protocol}}{{host}}{{root}}/users/3
+Authorization: Bearer {{auth_token}}

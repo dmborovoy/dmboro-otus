@@ -1,0 +1,57 @@
+package com.dimas.controller;
+
+
+import com.dimas.api.ApiUser;
+import com.dimas.api.ApiUserRequest;
+import com.dimas.service.UserService;
+import com.dimas.util.CreateGroup;
+import com.dimas.util.UpdateGroup;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static com.dimas.util.Constant.ROOT_PATH;
+
+@Slf4j
+@RestController
+@RequestMapping(ROOT_PATH)
+@RequiredArgsConstructor
+public class UserController {
+
+    private final static String PATH = "/users";
+    private final UserService userService;
+
+    @PostMapping("/register")
+    public ApiUser create(@RequestBody @Validated(CreateGroup.class) ApiUserRequest request) {
+        return userService.register(request);
+    }
+
+    @GetMapping(PATH + "/me")
+    public ApiUser me() {
+        return userService.getMe();
+    }
+
+    @GetMapping(PATH + "/{id}")
+    public ApiUser getById(@PathVariable Long id) {
+        return userService.findById(id);
+    }
+
+    @GetMapping(PATH) //for debug purposes, later hide it
+    public List<ApiUser> getAll() {
+        return userService.getAll();
+    }
+
+    @PutMapping(PATH + "/{id}")
+    public ApiUser update(@PathVariable Long id, @RequestBody @Validated(UpdateGroup.class) ApiUserRequest request) {
+        return userService.update(id, request);
+    }
+
+    @DeleteMapping(PATH + "/{id}") // for debug purposes later remove it
+    public void delete(@PathVariable Long id) {
+        userService.deleteById(id);
+    }
+
+}

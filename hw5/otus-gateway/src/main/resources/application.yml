@@ -1,0 +1,52 @@
+logging:
+  level:
+    com.dimas: ${LOG_LEVEL:DEBUG}
+    org.springframework.cache: ${CACHE_LOG_LEVEL:TRACE}
+    org.springframework.security: ${SECURITY_LOG_LEVEL:DEBUG}
+    org.springframework.security.web.server.util.matcher.OrServerWebExchangeMatcher: ${WEB_EXCHANGE_MATCHER_LOG_LEVEL:INFO}
+    reactor.netty: ${NETTY_LOG_LEVEL:INFO}
+
+http-logging:
+  enabled: true
+  excluded: /actuator**/**,/version**/**
+
+server:
+  port: ${TARGET_PORT:5000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [ "metrics", "prometheus", "health", "beans", "mappings", "monitoring", "info", "env" ]
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+spring:
+  application.name: otus-gateway
+  main:
+    web-application-type: reactive
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${KC_HOST:http://arch.homework}:${KC_PORT:8080}/realms/${KC_REALM:otus}/protocol/openid-connect/certs
+  cloud:
+    gateway:
+      routes:
+        - id: profile-service
+          uri: ${PROFILE_URL:http://localhost:5001}
+          predicates:
+            - name: Path
+              args:
+                - /api/v1/register
+                - /api/v1/users/**
+                - /api/v1/kc/**
+                - /api/v1/system
+                - /api/v1/hostname

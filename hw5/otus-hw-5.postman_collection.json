@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "f0d2db97-cba5-49aa-bbd0-f02e8887af67",
+		"name": "otus-hw-5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7141707"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"firstName2\",\r\n  \"lastName\": \"lastName2\",\r\n  \"login\": \"login22@login.com\",\r\n  \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJISTYycUU1ZFNEbHExZlhxNWtuSTlWTzkyRlN6MXZ4MTVxN0RuQmVyX08wIn0.eyJleHAiOjE2NjI4OTAxOTUsImlhdCI6MTY2Mjg4OTg5NSwianRpIjoiOWUwYmJmYTItZDVjZC00ZGIxLWI5OGItZjg5ODliMWQ1ZWVkIiwiaXNzIjoiaHR0cDovL2FyY2guaG9tZXdvcmsvcmVhbG1zL290dXMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmZhYTE4MzctNjc5MC00MTFhLTg4YTQtZjAzNTUwODBlNzJhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicHVibGljLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiIyYzk0NmE3Ny1hZjM3LTQ2NjctOTk0NC05OWVkODQyMGU1YmIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3R1cyIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiMmM5NDZhNzctYWYzNy00NjY3LTk5NDQtOTllZDg0MjBlNWJiIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSBsb2dpbjU1QGxvZ2luLmNvbSIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZ2l2ZW5fbmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZmFtaWx5X25hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSIsInVzZXJJZCI6IjQiLCJlbWFpbCI6ImxvZ2luNTVAbG9naW4uY29tIn0.Yoz3m2MFQtY4yAGh7z3JygcuHJocVDb89w476sFuGWpjnURsCkiVBHG4I32nxvjKz0ljvRWCrNTU-HjMxduqQbXS_mdRv5sMmIZCNXuO6cPCW8vfjmJXslnAx2y5PzoDUFx6GmK4owdih9-ysxSrYcV6LZqFQ86Xlxfpb1Sli_DjyzB5IrJuvd6K_ri7xVlhingqxSjESB5dFTVXu6j4GrSFmQ8llasworZN1JS1n03dAecGkJmO4d4Kfl5k-KsvBO6BKKrGM-synQOfmhAV8tTiqjzLjHop2GnM9FIvI6rbHGwGWZAk12yWXkLxzmP1GA-P7IZ5RdGgHfNBlIA67Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/api/v1/users/4",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJISTYycUU1ZFNEbHExZlhxNWtuSTlWTzkyRlN6MXZ4MTVxN0RuQmVyX08wIn0.eyJleHAiOjE2NjI4OTAxOTUsImlhdCI6MTY2Mjg4OTg5NSwianRpIjoiOWUwYmJmYTItZDVjZC00ZGIxLWI5OGItZjg5ODliMWQ1ZWVkIiwiaXNzIjoiaHR0cDovL2FyY2guaG9tZXdvcmsvcmVhbG1zL290dXMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmZhYTE4MzctNjc5MC00MTFhLTg4YTQtZjAzNTUwODBlNzJhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicHVibGljLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiIyYzk0NmE3Ny1hZjM3LTQ2NjctOTk0NC05OWVkODQyMGU1YmIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3R1cyIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiMmM5NDZhNzctYWYzNy00NjY3LTk5NDQtOTllZDg0MjBlNWJiIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSBsb2dpbjU1QGxvZ2luLmNvbSIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZ2l2ZW5fbmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZmFtaWx5X25hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSIsInVzZXJJZCI6IjQiLCJlbWFpbCI6ImxvZ2luNTVAbG9naW4uY29tIn0.Yoz3m2MFQtY4yAGh7z3JygcuHJocVDb89w476sFuGWpjnURsCkiVBHG4I32nxvjKz0ljvRWCrNTU-HjMxduqQbXS_mdRv5sMmIZCNXuO6cPCW8vfjmJXslnAx2y5PzoDUFx6GmK4owdih9-ysxSrYcV6LZqFQ86Xlxfpb1Sli_DjyzB5IrJuvd6K_ri7xVlhingqxSjESB5dFTVXu6j4GrSFmQ8llasworZN1JS1n03dAecGkJmO4d4Kfl5k-KsvBO6BKKrGM-synQOfmhAV8tTiqjzLjHop2GnM9FIvI6rbHGwGWZAk12yWXkLxzmP1GA-P7IZ5RdGgHfNBlIA67Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/api/v1/users/me",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJISTYycUU1ZFNEbHExZlhxNWtuSTlWTzkyRlN6MXZ4MTVxN0RuQmVyX08wIn0.eyJleHAiOjE2NjI4OTAxOTUsImlhdCI6MTY2Mjg4OTg5NSwianRpIjoiOWUwYmJmYTItZDVjZC00ZGIxLWI5OGItZjg5ODliMWQ1ZWVkIiwiaXNzIjoiaHR0cDovL2FyY2guaG9tZXdvcmsvcmVhbG1zL290dXMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmZhYTE4MzctNjc5MC00MTFhLTg4YTQtZjAzNTUwODBlNzJhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicHVibGljLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiIyYzk0NmE3Ny1hZjM3LTQ2NjctOTk0NC05OWVkODQyMGU1YmIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3R1cyIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiMmM5NDZhNzctYWYzNy00NjY3LTk5NDQtOTllZDg0MjBlNWJiIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSBsb2dpbjU1QGxvZ2luLmNvbSIsInByZWZlcnJlZF91c2VybmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZ2l2ZW5fbmFtZSI6ImxvZ2luNTVAbG9naW4uY29tIiwiZmFtaWx5X25hbWUiOiJsb2dpbjU1QGxvZ2luLmNvbSIsInVzZXJJZCI6IjQiLCJlbWFpbCI6ImxvZ2luNTVAbG9naW4uY29tIn0.Yoz3m2MFQtY4yAGh7z3JygcuHJocVDb89w476sFuGWpjnURsCkiVBHG4I32nxvjKz0ljvRWCrNTU-HjMxduqQbXS_mdRv5sMmIZCNXuO6cPCW8vfjmJXslnAx2y5PzoDUFx6GmK4owdih9-ysxSrYcV6LZqFQ86Xlxfpb1Sli_DjyzB5IrJuvd6K_ri7xVlhingqxSjESB5dFTVXu6j4GrSFmQ8llasworZN1JS1n03dAecGkJmO4d4Kfl5k-KsvBO6BKKrGM-synQOfmhAV8tTiqjzLjHop2GnM9FIvI6rbHGwGWZAk12yWXkLxzmP1GA-P7IZ5RdGgHfNBlIA67Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"firstName15_update\",\r\n    \"lastName\": \"lastName15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/v1/users/4",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "public-client",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "login55@login.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/realms/otus/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"realms",
+						"otus",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "arch.homework",
+			"type": "string"
+		}
+	]
+}
