@@ -1,0 +1,15 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/users
+X-USER-ID: 1
+X-REQUEST-ID: ed4224c7-f4df-481b-8a0e-6e8ac836d709
+
+###create
+POST {{protocol}}{{host}}{{root}}/users
+Content-Type: application/json
+X-USER-ID: 1
+X-REQUEST-ID: ed4224c7-f4df-481b-8a0e-6e8ac836d709
+
+{
+  "firstName": "firstName2",
+  "lastName": "lastName2"
+}

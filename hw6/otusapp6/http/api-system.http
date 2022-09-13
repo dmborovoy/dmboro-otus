@@ -1,0 +1,8 @@
+###
+GET {{protocol}}{{host}}{{root}}/system
+X-USER-ID: 1
+X-REQUEST-ID: ed4224c7-f4df-481b-8a0e-6e8ac836d709
+###
+GET {{protocol}}{{host}}{{root}}/hostname
+X-USER-ID: 1
+X-REQUEST-ID: ed4224c7-f4df-481b-8a0e-6e8ac836d709

@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    app: {{ .Values.app.name }}
+    
+spec:
+  endpoints:
+    - port: http
+      interval: 15s
+      path: /actuator/prometheus     
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  
