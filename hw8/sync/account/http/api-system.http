@@ -1,0 +1,4 @@
+###
+GET {{protocol}}{{host}}{{root}}/system
+###
+GET {{protocol}}{{host}}{{root}}/hostname

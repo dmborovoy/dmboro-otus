@@ -1,0 +1,41 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/accounts
+
+###getById
+GET {{protocol}}{{host}}{{root}}/accounts/154e9bb9-bb4c-4daf-b5b2-b1de07e413dd
+
+> {% client.global.set("currentAccountId", response.body.id); %}
+
+###create
+POST {{protocol}}{{host}}{{root}}/accounts
+Content-Type: application/json
+
+{
+  "userId": "c654cffd-8e90-4884-bffd-e46ac489d9da",
+  "description": "Account generate at {{$timestamp}}",
+  "initialBalance": 100.1
+}
+
+> {% client.global.set("currentAccountId", response.body.id); %}
+
+
+###Credit
+PUT {{protocol}}{{host}}{{root}}/accounts/{{currentAccountId}}/credit
+Content-Type: application/json
+
+{
+  "userId": "c654cffd-8e90-4884-bffd-e46ac489d9da",
+  "amount": 150.12
+}
+
+###Debit
+PUT {{protocol}}{{host}}{{root}}/accounts/{{currentAccountId}}/debit
+Content-Type: application/json
+
+{
+  "userId": "c654cffd-8e90-4884-bffd-e46ac489d9da",
+  "amount": 15.12
+}
+
+###delete
+DELETE {{protocol}}{{host}}{{root}}/orders/1

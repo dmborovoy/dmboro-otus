@@ -1,0 +1,42 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/orders
+
+###create
+POST {{protocol}}{{host}}{{root}}/orders
+Content-Type: application/json
+
+{
+  "userId": "c654cffd-8e90-4884-bffd-e46ac489d9da",
+  "description": "Order generate at {{$timestamp}}",
+  "items": [
+    {
+      "goodId": "{{$uuid}}",
+      "count": 3
+    },
+    {
+      "goodId": "{{$uuid}}",
+      "count": 7
+    },
+    {
+      "goodId": "{{$uuid}}",
+      "count": 12
+    }
+  ]
+}
+
+###get by id
+GET {{protocol}}{{host}}{{root}}/orders/1
+
+
+
+###update
+PUT {{protocol}}{{host}}{{root}}/orders/1
+Content-Type: application/json
+
+{
+  "firstName": "firstName12",
+  "lastName": "lastName1"
+}
+
+###delete
+DELETE {{protocol}}{{host}}{{root}}/orders/1

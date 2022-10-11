@@ -1,0 +1,29 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/sagas
+
+###create
+POST {{protocol}}{{host}}{{root}}/orders/saga
+Content-Type: application/json
+
+{
+  "userId": "c654cffd-8e90-4884-bffd-e46ac489d9da",
+  "accountId": "0fbcfd2f-b2b3-451e-95a8-cae470ed1479",
+  "transactionId": "{{$uuid}}",
+  "amount": "10.1",
+  "description": "Order generate at {{$timestamp}}",
+  "items": [
+    {
+      "goodId": "0ef9e303-3008-4720-a697-5fccb775f1de",
+      "count": 3
+    },
+    {
+      "goodId": "b2750db8-562b-466a-b12e-0292ab0fcf5c",
+      "count": 7
+    },
+    {
+      "goodId": "dfe54b18-7a31-4c31-b10a-5ecb69313fe5",
+      "count": 12
+    }
+  ]
+}
+

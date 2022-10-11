@@ -1,0 +1,41 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/goods
+
+###getById
+GET {{protocol}}{{host}}{{root}}/goods/154e9bb9-bb4c-4daf-b5b2-b1de07e413dd
+
+> {% client.global.set("currentGoodId", response.body.id); %}
+
+###create
+POST {{protocol}}{{host}}{{root}}/goods
+Content-Type: application/json
+
+{
+  "name": "socks",
+  "department": "SHOP",
+  "description": "pretty socks",
+  "count": 100
+}
+
+> {% client.global.set("currentGoodId", response.body.id); %}
+
+###
+POST {{protocol}}{{host}}{{root}}/goods
+Content-Type: application/json
+
+{
+  "name": "shoes",
+  "department": "STOCK",
+  "description": "ugly shoes",
+  "count": 155
+}
+
+> {% client.global.set("currentGoodId", response.body.id); %}
+
+###Reserve
+PUT {{protocol}}{{host}}{{root}}/goods/{{currentGoodId}}/reserve
+Content-Type: application/json
+
+{
+  "count": 13
+}

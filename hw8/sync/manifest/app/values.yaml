@@ -1,0 +1,33 @@
+replicaCount: 3
+
+image:
+  repository: docker.io/recvezitor/otus-app3:latest
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8000
+
+ingress:
+  host: arch.homework
+
+app:
+  name: otus-app3
+  namespace: otus
+  port: 5000
+  config:
+    name: app-config
+    data:
+      - key: DB_HOST
+        value: postgres.postgres-ns.svc.cluster.local
+#      - key: DB_PORT
+#        value: 5432
+      - key: DB_DATABASE
+        value: postgres
+      - key: DB_SCHEMA
+        value: otus
+      - key: DB_USERNAME
+        value: postgres
+      - key: DB_PASSWORD
+        value: postgres
