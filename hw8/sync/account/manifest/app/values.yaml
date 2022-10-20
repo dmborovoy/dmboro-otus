@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  repository: docker.io/recvezitor/otus-account:latest
+  repository: docker.io/recvezitor/otus-hw8-account:latest
   pullPolicy: IfNotPresent
   tag: "latest"
 
@@ -13,9 +13,9 @@ ingress:
   host: arch.homework
 
 app:
-  name: otus-account
+  name: otus-hw8-account
   namespace: otus
-  port: 5001
+  port: 5000
   config:
     name: app-config
     data:

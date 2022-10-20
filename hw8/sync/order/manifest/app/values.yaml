@@ -1,7 +1,7 @@
 replicaCount: 3
 
 image:
-  repository: docker.io/recvezitor/otus-order:latest
+  repository: docker.io/recvezitor/otus-hw8-order:latest
   pullPolicy: IfNotPresent
   tag: "latest"
 
@@ -13,7 +13,7 @@ ingress:
   host: arch.homework
 
 app:
-  name: otus-order
+  name: otus-hw8-order
   namespace: otus
   port: 5000
   config:
