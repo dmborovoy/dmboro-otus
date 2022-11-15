@@ -1,6 +1,5 @@
 package com.dimas.user.service;
 
-import com.dimas.user.api.ApiUser;
 import com.dimas.user.api.ApiUserRequest;
 import com.dimas.user.data.model.User;
 import com.dimas.user.data.model.UserStatus;
@@ -10,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Random;
+import java.util.UUID;
 
 
 @Slf4j
@@ -23,6 +22,10 @@ public class UserService {
 
     public User findById(Long id) {
         return repository.getById(id);
+    }
+
+    public User findByAccountId(UUID accountId) {
+        return repository.findByAccountId(accountId);
     }
 
     public User create(ApiUserRequest request) {

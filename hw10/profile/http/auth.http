@@ -1,0 +1,17 @@
+### deafult user token
+POST {{protocol}}{{kc-host}}/realms/{{kc-realm}}/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{kc-client-id}}&grant_type=password&scope=openid&username={{kc-username}}&password={{kc-userpassword}}
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+
+
+### new user token
+POST {{protocol}}{{kc-host}}/realms/{{kc-realm}}/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={{kc-client-id}}&grant_type=password&scope=openid&username={{username}}&password={{userpassword}}
+
+> {% client.global.set("auth_token", response.body.access_token); %}
+

@@ -1,19 +1,18 @@
-###get all
-GET {{protocol}}{{host}}{{root}}/users/9
-
 ###create user + account
 POST {{protocol}}{{host}}{{root}}/users
 #POST http://localhost:5001/api/v1/users
 Content-Type: application/json
 
 {
-  "firstName": "firstName2",
-  "lastName": "lastName2"
+  "firstName": "firstName9",
+  "lastName": "lastName9"
 }
 
+###get all
+GET {{protocol}}{{host}}{{root}}/users/17
 
 ###debit
-PUT {{protocol}}{{host2}}{{root}}/cqrs/accounts/c4c6bb7f-2d85-429f-a2f4-bcf7e5d96d13/debit
+PUT {{protocol}}{{host2}}{{root}}/cqrs/accounts/8129a0e7-2070-46f5-b8b5-8a21ed2d7aa1/debit
 Content-Type: application/json
 
 {
@@ -21,12 +20,15 @@ Content-Type: application/json
 }
 
 ###credit
-PUT {{protocol}}{{host2}}{{root}}/cqrs/accounts/c4c6bb7f-2d85-429f-a2f4-bcf7e5d96d13/credit
+PUT {{protocol}}{{host2}}{{root}}/cqrs/accounts/8129a0e7-2070-46f5-b8b5-8a21ed2d7aa1/credit
 Content-Type: application/json
 
 {
   "amount": "10.2"
 }
+
+###notification
+GET {{protocol}}{{host2}}{{root}}/notifications
 
 ###get acc by id from billing
 GET {{protocol}}{{host2}}{{root}}/cqrs/accounts/c4c6bb7f-2d85-429f-a2f4-bcf7e5d96d13

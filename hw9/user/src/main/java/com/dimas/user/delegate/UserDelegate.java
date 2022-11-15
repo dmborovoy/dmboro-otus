@@ -1,11 +1,14 @@
 package com.dimas.user.delegate;
 
+import com.dimas.cqrs.InsufficientFundsEvent;
+import com.dimas.cqrs.NotificationStatus;
 import com.dimas.user.api.ApiUser;
 import com.dimas.user.api.ApiUserRequest;
 import com.dimas.cqrs.AccountCreatedEvent;
 import com.dimas.cqrs.BalanceUpdatedEvent;
 import com.dimas.user.data.model.UserStatus;
 import com.dimas.user.service.AccountClient;
+import com.dimas.user.service.NotificationClient;
 import com.dimas.user.service.UserMapper;
 import com.dimas.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +27,7 @@ public class UserDelegate {
 
     private final UserService userService;
     private final AccountClient accountClient;
+    private final NotificationClient notificationClient;
     private final UserMapper mapper;
 
     public ApiUser createUserAndWait(ApiUserRequest userRequest) {
@@ -81,12 +85,20 @@ public class UserDelegate {
                 .status(UserStatus.NORMAL)
                 .build();
         final var user = userService.patch(event.getUserId(), updateRequest);
+        notificationClient.sendNotification(user, "Account was created", NotificationStatus.OK);
         log.info("Account with id={} was created for user with userId={}", user.getAccountId(), user.getId());
     }
 
     @EventHandler
     public void onBalanceUpdated(BalanceUpdatedEvent event) {
-        log.info("Received BalanceUpdatedEvent={}", event);//no actions required
+        log.info("Received BalanceUpdatedEvent={}", event);
+        notificationClient.sendNotification(userService.findByAccountId(event.getAccountId()), "Balance was successfully updated", NotificationStatus.OK);
+    }
+
+    @EventHandler
+    public void onInsufficientFunds(InsufficientFundsEvent event) {
+        log.info("Received InsufficientFundsEvent={}", event);
+        notificationClient.sendNotification(userService.findByAccountId(event.getAccountId()), "Insufficient funds", NotificationStatus.NOK);
     }
 
 }

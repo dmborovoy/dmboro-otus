@@ -10,6 +10,10 @@ axon:
     servers: ${AXONSERVER_HOST:localhost:8124}
   amqp:
     exchange: "events"
+#  eventhandling:
+#    processors:
+#      name:
+#        source: myQueueMessageSource
 
 spring:
   application.name: users

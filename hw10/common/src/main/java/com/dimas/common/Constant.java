@@ -1,0 +1,30 @@
+package com.dimas.common;
+
+import java.util.List;
+
+public interface Constant {
+    String ROOT_PATH = "/api/v1";
+
+    String X_API_USER_ID_HEADER_NAME = "X-USER-ID";
+    String X_API_USER_NAME_HEADER_NAME = "X-USER-NAME";
+//    String X_API_TENANT_ID_HEADER_NAME = "X-TENANT-ID";
+//    String X_API_USER_ALLOWED_TENANTS_HEADER_NAME = "X-USER-ALLOWED-TENANTS";
+//    String X_API_USER_KEYCLOAK_ID_HEADER_NAME = "X-KEYCLOAK-ID";
+//    String X_API_USER_KEYCLOAK_GROUPS_HEADER_NAME = "X-KEYCLOAK-GROUPS";
+//    String X_API_APPLICATION_ID_HEADER_NAME = "X-APPLICATION-ID";
+//    String X_API_USER_IS_API_USER_HEADER_NAME = "X-API-USER";
+
+    List<String> GATEWAY_HEADER_NAMES = List.of(
+            X_API_USER_ID_HEADER_NAME,
+            X_API_USER_NAME_HEADER_NAME
+//            X_API_USER_ALLOWED_TENANTS_HEADER_NAME,
+//            X_API_USER_KEYCLOAK_GROUPS_HEADER_NAME,
+//            X_API_USER_KEYCLOAK_ID_HEADER_NAME,
+//            X_API_TENANT_ID_HEADER_NAME,
+//            X_API_USER_IS_API_USER_HEADER_NAME,
+//            X_API_APPLICATION_ID_HEADER_NAME
+    );
+
+    String KEYCLOAK_USER_ID_ATTRIBUTE= "userId";
+}
+
