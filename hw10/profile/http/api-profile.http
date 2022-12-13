@@ -1,0 +1,35 @@
+###get all
+GET {{protocol}}{{host}}{{root}}/users
+
+###getById
+GET {{protocol}}{{host}}{{root}}/users/154e9bb9-bb4c-4daf-b5b2-b1de07e413dd
+
+> {% client.global.set("currentAccountId", response.body.id); %}
+
+###create
+POST {{protocol}}{{host}}{{root}}/users
+Content-Type: application/json
+
+{
+"firstName": "firstName2",
+"lastName": "lastName2",
+"login": "login23@login.com",
+"password": "123"
+}
+
+
+###add permission
+PUT {{protocol}}{{host}}{{root}}/users/2/permissions
+Content-Type: application/json
+
+{
+  "permissionId": 1
+}
+
+###remove permission
+DELETE {{protocol}}{{host}}{{root}}/users/2/permissions
+Content-Type: application/json
+
+{
+  "permissionId": 1
+}

@@ -1,0 +1,67 @@
+logging:
+  level:
+    com.dmboro.notification: ${LOG_LEVEL:DEBUG}
+
+server:
+  port: ${TARGET_PORT:5003}
+
+axon:
+  axonserver:
+    servers: ${AXONSERVER_HOST:localhost:8124}
+  amqp:
+    exchange: "events"
+#  eventhandling:
+#    processors:
+#      name:
+#        source: myQueueMessageSource
+
+spring:
+  application.name: notification
+  rabbitmq:
+    addresses: ${RABBIT_MQ_ADDRESSES:localhost:5672}
+    virtual-host: ${RABBIT_MQ_VHOST:/}
+    username: ${RABBIT_MQ_USERNAME:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
+    listener:
+      simple:
+        default-requeue-rejected: false
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_DATABASE:postgres}?currentSchema=${DB_SCHEMA:notification}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        enable_lazy_load_no_trans: true
+        default_schema: ${DB_SCHEMA:notification}
+        generate_statistics: false
+        order_inserts: true
+        jdbc:
+          batch_size: 10
+
+    open-in-view: false
+  flyway:
+    enabled: true
+    schemas: ${DB_SCHEMA:notification}
+    user: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+management:
+  health:
+    livenessstate.enabled: false
+    readinessstate.enabled: false
+  endpoint.health.probes.enabled: false
+  endpoints.web:
+    exposure.include: [ "metrics", "prometheus", "health", "beans", "mappings", "monitoring", "info", "env" ]
+  metrics:
+    distribution:
+      slo:
+        http.server.requests: 10ms, 50ms, 100ms, 200ms, 300ms, 400ms, 500ms
+    export.prometheus.enabled: true
+

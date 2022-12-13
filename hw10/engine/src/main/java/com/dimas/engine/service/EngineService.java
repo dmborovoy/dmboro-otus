@@ -12,11 +12,9 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class EngineService {
-
     private final List<IPreProcessor> preProcessors;
     private final List<IPostProcessor> postProcessors;
     private final IFraudRulePoller rulePoller;
-
     public FraudTransactionResult process(FraudTransaction fraudTransaction) {
         log.info("[FRAUD {}] Started", fraudTransaction.getRequestId());
         log.info("[FRAUD {}] Running preprocessors", fraudTransaction.getRequestId());
@@ -26,7 +24,7 @@ public class EngineService {
         log.info("[FRAUD {}] Running postprocessors", fraudTransaction.getRequestId());
         postProcessors.forEach(e -> e.process(fraudTransaction));
         log.info("[FRAUD {}] Completed", fraudTransaction.getRequestId());
-        return result;//TODO exception handling
+        return result;
     }
 
     private FraudTransactionResult doProcess(FraudTransaction fraudTransaction) {
